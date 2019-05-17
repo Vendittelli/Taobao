@@ -1,0 +1,16 @@
+import bs4
+from urllib.request import urlopen as uReq
+from bs4 import BeautifulSoup as Soup
+from tkinter import *
+
+UserForm = Tk()
+UserForm.geometry("250x250")
+UserForm.title("Add Item")
+
+ItemLabel = Label(UserForm, text="Enter Item Link")
+ItemLabel.place(x=85, y=40)
+
+LinkEntry = Entry(UserForm)
+LinkEntry.place(x=)
+
+UserForm.mainloop()
