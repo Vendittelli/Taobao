@@ -1,0 +1,19 @@
+# This was coded by Luke
+# It's a taobao scraper that will download item data and pictures into a way that's easy for use
+# Hopefully it would output data into a way that is helpful to me
+import CleanLink
+
+# This prompt finds out if it's scraping a store or an item
+type = input("Store or item?\n")\
+
+# This will take the answer, get the link from the user and call the required functions
+if type.lower() == "store" or type.lower() == "s":
+    link = input("Enter store link.\n")
+    print("\nokay, scraping store.")
+    CleanLink.trimLink(link)
+
+elif type.lower() == "item" or type.lower() == "i":
+    link = input("Enter item link.\n")
+    print("\nokay, scraping item.")
+
+    CleanLink.trimLink(link)
