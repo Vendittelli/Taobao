@@ -1,0 +1,19 @@
+import bs4
+from urllib.request import urlopen as uReq
+from bs4 import BeautifulSoup as soup
+
+# this function will scrape the data for the item
+def StoreItems(link):
+
+    url = link
+
+    uClient = uReq(url)
+    page_html = uClient.read()
+    uClient.close()
+
+    htmldata = soup(page_html, "html.parser",from_encoding="iso-8859-1")
+    # page_soup = soup(page_html, "html.parser")
+
+    # In the intro to webscraping tutorial, around the 14 minute mark is where he does what you want for this part
+    # This should take the title of the image
+    # Title = htmldata.findAll("div",{"id":"J_Title"})
