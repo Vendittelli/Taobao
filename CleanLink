@@ -1,0 +1,21 @@
+# here we're going to remove the s from the link since bs has trouble with secure links
+
+import Item
+
+
+def trimLink(link):
+    if link[4] == "s":
+        linkItems = []
+        for i in range (0, len(link)):
+            linkItems.append(link[i])
+        linkItems.pop(4)
+
+        cleanLink = ""
+        for i in range(0,len(linkItems)):
+            cleanLink = cleanLink + linkItems[i]
+
+        # here we just call the item scraper
+        Item.ItemPull(cleanLink)
+    else:
+        Item.ItemPull(link)
+
