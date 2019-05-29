@@ -1,0 +1,33 @@
+import bs4
+from urllib.request import urlopen as uReq
+from bs4 import BeautifulSoup as soup
+
+# this function will scrape the data for the item
+def ItemPull(link):
+
+    url = link
+    #url = "https://item.taobao.com/item.htm?id=545144455504"
+
+    uClient = uReq(url)
+    page_html = uClient.read()
+    uClient.close()
+
+    htmldata = soup(page_html, "html.parser",from_encoding="iso-8859-1")
+    # page_soup = soup(page_html, "html.parser")
+
+    # For some reason bs was using some wack variable types
+    # So this part pulls the price as a string then casts it to a float
+    ItemRMB = float(htmldata.find("em",{"class":"tb-rmb-num"}).string)
+
+    # Here we're going to try and go for the colours
+    ColourData = htmldata.find("ul",{"class":"J_TSaleProp tb-img tb-clearfix"})
+    # ItemColours = ColourData.findAll("span")
+
+    index = htmldata.find("span").string
+    print(index)
+    Colours = [element.text for element in htmldata.findAll("span")]
+
+
+    print(ColourData)
+    #print(type(ItemColours[0]))
+    print(Colours)
